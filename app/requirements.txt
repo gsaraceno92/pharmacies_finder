@@ -1,0 +1,6 @@
+Flask>1.0.*
+python-dotenv
+environs
+flask-inputs
+pyopenssl
+Flask-JSONRPC

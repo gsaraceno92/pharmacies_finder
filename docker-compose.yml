@@ -1,0 +1,20 @@
+version: "3"
+services:
+  app:
+    container_name: finder_pharmacies
+    build:
+      context: ./
+      dockerfile: ./docker_system/develop/app.dockerfile
+      args:
+        - USER=${USER}
+        - UID=${UID}
+    ports:
+      - 5000:5000
+    restart: unless-stopped
+    volumes:
+      - ./app:/usr/src/app
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 5m
+        max-file: "3"
