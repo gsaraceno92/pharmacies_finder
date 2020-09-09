@@ -21,6 +21,9 @@ Step to follow:
 
 - Copy [**_.env.example_**](app/.env.example) into **_.env_**
 
+  **Note:** edit [docker .env file](.env) only if build fail; that probably means that your user id (in ubuntu system) is different from this one.
+  In this case update with your own id.
+
 ---
 
 ## Setup
