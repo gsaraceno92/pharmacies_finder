@@ -4,3 +4,5 @@ environs
 flask-inputs
 pyopenssl
 Flask-JSONRPC
+typing
+requests

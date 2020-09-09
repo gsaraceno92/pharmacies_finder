@@ -2,19 +2,21 @@
 import os
 from flask import Flask, jsonify, redirect, request
 from flask_jsonrpc import JSONRPC
-from api.pharmacy import pharmacy
 import settings
 from settings import logger, env
+from controllers.pharmacy import Pharmacy
 
 
-app = Flask(__name__)
+app = Flask(__name__, instance_relative_config=True)
 
 jsonrpc = JSONRPC(app, '/api', enable_web_browsable_api=True)
-jsonrpc.register_blueprint(app, pharmacy, url_prefix='/v1', enable_web_browsable_api=True)
 
 @jsonrpc.method('App.index')
 def index() -> str:
     return 'Welcome to Pharmacies Finder'
+
+pharmacy = Pharmacy()
+jsonrpc.register(pharmacy.SearchNearestPharmacy, name="Pharmacy.SearchNearestPharmacy")
 
 if __name__ == '__main__':
     debug = env.bool('DEBUG', True)
