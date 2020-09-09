@@ -16,7 +16,7 @@ def index() -> str:
     return 'Welcome to Pharmacies Finder'
 
 pharmacy = Pharmacy()
-jsonrpc.register(pharmacy.SearchNearestPharmacy, name="Pharmacy.SearchNearestPharmacy")
+jsonrpc.register(pharmacy.SearchNearestPharmacy)
 
 if __name__ == '__main__':
     debug = env.bool('DEBUG', True)
