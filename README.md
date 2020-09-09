@@ -8,6 +8,7 @@ Step to follow:
 
 - [Installation](#installation)
 - [Setup docker project](#setup)
+- [Test](#running-tests)
 - [Site](#site)
 
 ---
@@ -54,6 +55,14 @@ Sometimes Flask application could not reload automatically the changes (since th
 If you want to use the commands anywhere use **-f** to specify the docker-compose file position, e.g.:
 
     `docker-compose -f ./docker-compose.yml up -d`
+
+---
+
+## **Running tests**
+
+Run the files inside [tests](app/tests) directory as follow:
+
+    `docker exec -it finder_pharmacies python3 tests/test_pharmacy.py`
 
 ---
 

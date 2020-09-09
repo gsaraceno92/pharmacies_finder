@@ -15,7 +15,7 @@ class Pharmacy:
     @classmethod
     def SearchNearestPharmacy(cls, currentLocation: Dict, range: int, limit: int) -> tuple:
         if not {"latitude", "longitude"} <= currentLocation.keys():
-            return utils.createResponse(422, "Validation error: currentLocation must contain 'latitude' and 'longitude'")
+            return {"message": "Validation error: currentLocation must contain 'latitude' and 'longitude'"}, 422
 
         uri = env("DATA_URL")
         try:
