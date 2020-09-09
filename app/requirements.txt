@@ -6,3 +6,4 @@ pyopenssl
 Flask-JSONRPC
 typing
 requests
+numpy

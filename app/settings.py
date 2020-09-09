@@ -7,7 +7,8 @@ from environs import Env
 env = Env()
 # Read .env into os.environ
 env.read_env()
-logging.basicConfig(filename=env.str('LOG_FILE'), level=logging.INFO,
+log_level = logging.DEBUG if env.bool("DEBUG") else logging.INFO
+logging.basicConfig(filename=env.str('LOG_FILE'), level=log_level,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger()
 
