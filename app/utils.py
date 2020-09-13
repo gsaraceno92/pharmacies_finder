@@ -13,4 +13,4 @@ def haversine_distance(base_latitude: Real, base_longitude: Real, latitude: Real
     delta_lambda = np.radians(longitude - base_longitude)
     a = np.sin(delta_phi / 2)**2 + np.cos(phi1) * np.cos(phi2) *   np.sin(delta_lambda / 2)**2
     res = r * (2 * np.arctan2(np.sqrt(a), np.sqrt(1 - a)))
-    return np.round(res, 2)
+    return np.round(res * 1000, 0) # get meters measure

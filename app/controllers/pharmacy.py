@@ -37,14 +37,17 @@ class Pharmacy:
             coordinates = pharmacy['geometry']['coordinates']
             pharmacy_name = pharmacy['properties']['Descrizione']
             distance = utils.haversine_distance(currentLocation['latitude'], currentLocation['longitude'], coordinates[1], coordinates[0])
-            pharmacies_distance.append({
-                "name": pharmacy_name,
-                "distance": distance,
-                "location": {
-                    "latitude": coordinates[1],
-                    "longitude": coordinates[0]
-                }
-            })
+            if distance <= range:
+                pharmacies_distance.append({
+                    "name": pharmacy_name,
+                    "distance": distance,
+                    "location": {
+                        "latitude": coordinates[1],
+                        "longitude": coordinates[0]
+                    }
+                })
+        if len(pharmacies_distance) == 0:
+            return "No resources", 404
         sorted_pharmacies = sorted(pharmacies_distance,  key=lambda k: k['distance'])
         sorted_pharmacies = sorted_pharmacies[:limit] if limit < len(sorted_pharmacies) else sorted_pharmacies 
         return {
