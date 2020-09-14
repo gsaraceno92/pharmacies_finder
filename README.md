@@ -36,7 +36,7 @@ These are the instructions to follow to set up the project on your local environ
 
 2.  Use `docker image ls` and `docker container ls` (or `docker ps`) to see your images and the running containers
 
-3.  Enter the container and run all the next commands inside it
+3.  Enter into the container with
 
         docker exec -it finder_pharmacies bash
 
